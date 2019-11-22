@@ -6,8 +6,8 @@ import math
 def compute_integral(img, img_name):
 
     img = np.array(img)
-    s_img = np.zeros(img.shape).astype(int)
-    ii_img = np.zeros(img.shape).astype(int)
+    s_img = np.zeros(img.shape)
+    ii_img = np.zeros(img.shape)
     #ii_img_python = img.cumsum(axis=1).cumsum(axis=0)
 
     #compute S which is cumulative i sum, use it to compute ii
@@ -23,9 +23,14 @@ def compute_integral(img, img_name):
             else:   
                 ii_img[i][j] = ii_img[i-1][j] + s_img[i][j]
 
-
+    print(ii_img)
+    ii_img = ii_img * (255/ ii_img.max())
+    ii_img = ii_img.astype('uint8')
+    
     integral_img = Image.fromarray(ii_img)
-    integral_img = integral_img.convert('L')
+
+    #integral_img = integral_img.convert('L')
+    #integral_img = integral_img.convert('L')
     integral_img.save(img_name)
     return ii_img
 

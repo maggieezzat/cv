@@ -1,2 +1,2 @@
-Ocean_a.bmp contrast: 12271548.0
-Ocean_b.bmp contrast: 23386619.0
+Ocean_a.bmp contrast: 12262910
+Ocean_b.bmp contrast: 23386619
